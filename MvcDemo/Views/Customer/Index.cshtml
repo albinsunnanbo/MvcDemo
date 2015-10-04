@@ -15,6 +15,6 @@
 <ul>
     @foreach (var customer in Model)
     {
-        <li>@Html.DisplayFor(m => customer.CustomerName)</li>
+        <li>@Html.DisplayFor(m => customer.CustomerName) - @Html.ActionLink("Edit customer", "Edit", new { id = customer.CustomerId })</li>
     }
 </ul>

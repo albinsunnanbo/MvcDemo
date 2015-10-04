@@ -51,5 +51,37 @@ namespace MvcDemo.Controllers
             // Return the same model with validation errors
             return View(model);
         }
+
+        public ActionResult Edit(int id)
+        {
+            using (var db = new DemoContext())
+            {
+                var dbCustomer = db.Customers.Single(c => c.CustomerId == id);
+                return View(new CustomerModel
+                {
+                    CustomerId = dbCustomer.CustomerId,
+                    CustomerName = dbCustomer.Name,
+                });
+            }
+        }
+
+        [HttpPost]
+        public ActionResult Edit(CustomerModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new DemoContext())
+                {
+                    var dbCustomer = db.Customers.Single(c => c.CustomerId == model.CustomerId);
+                    dbCustomer.Name = model.CustomerName;
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("Index");
+            }
+
+            // Return the same model with validation errors
+            return View(model);
+        }
     }
 }

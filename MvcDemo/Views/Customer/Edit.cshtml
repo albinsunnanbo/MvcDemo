@@ -1,0 +1,24 @@
+﻿@model MvcDemo.Models.CustomerModel
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm("Edit", "Customer"))
+{
+    @Html.HiddenFor(m => m.CustomerId)
+    <p>
+        @Html.ValidationSummary()
+    </p>
+    <p>
+        @Html.LabelFor(m => m.CustomerName)
+        <br />
+        @Html.EditorFor(m => m.CustomerName)
+        @Html.ValidationMessageFor(m => m.CustomerName)
+    </p>
+    <p>
+        <button type="submit">Click me, please!</button>
+    </p>
+}
