@@ -12,6 +12,7 @@ namespace MvcDemo.Models
         public int CustomerId { get; set; }
 
         [Display(Name = "Kundnamn")]
+        [Required]
         public string CustomerName { get; set; }
     }
 }

@@ -15,5 +15,26 @@ namespace MvcDemo.Controllers
         {
             return View(new CustomerModel());
         }
+
+        [HttpPost]
+        public ActionResult New(CustomerModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                using (var db = new DemoContext())
+                {
+                    db.Customers.Add(new Customer
+                    {
+                        Name = model.CustomerName,
+                    });
+                    db.SaveChanges();
+                }
+
+                return RedirectToAction("New");
+            }
+
+            // Return the same model with validation errors
+            return View(model);
+        }
     }
 }
