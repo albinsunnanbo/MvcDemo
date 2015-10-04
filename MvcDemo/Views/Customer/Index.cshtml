@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MvcDemo.Models.CustomerModel>
+
+@{
+    ViewBag.Title = "Customers";
+}
+
+<h2>Customers</h2>
+
+<p>
+    @Html.ActionLink("New customer", "New", "Customer")
+</p>
+<p>
+    Existing
+</p>
+<ul>
+    @foreach (var customer in Model)
+    {
+        <li>@Html.DisplayFor(m => customer.CustomerName)</li>
+    }
+</ul>

@@ -10,6 +10,21 @@ namespace MvcDemo.Controllers
 {
     public class CustomerController : Controller
     {
+        public ActionResult Index()
+        {
+            using (var db = new DemoContext())
+            {
+                var model = from c in db.Customers
+                            select new CustomerModel
+                            {
+                                CustomerId = c.CustomerId,
+                                CustomerName = c.Name,
+                            };
+
+                return View(model.ToList());
+            }
+
+        }
 
         public ActionResult New()
         {
@@ -30,7 +45,7 @@ namespace MvcDemo.Controllers
                     db.SaveChanges();
                 }
 
-                return RedirectToAction("New");
+                return RedirectToAction("Index");
             }
 
             // Return the same model with validation errors
