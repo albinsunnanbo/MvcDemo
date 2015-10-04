@@ -9,6 +9,8 @@
 @using (Html.BeginForm("New", "Customer"))
 {
     <p>
+        @Html.LabelFor(m => m.CustomerName)
+        <br />
         @Html.EditorFor(m => m.CustomerName)
     </p>
     <p>
