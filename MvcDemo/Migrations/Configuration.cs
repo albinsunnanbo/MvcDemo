@@ -5,14 +5,14 @@ namespace MvcDemo.Migrations
     using System.Data.Entity.Migrations;
     using System.Linq;
 
-    internal sealed class Configuration : DbMigrationsConfiguration<MvcDemo.Entities.Context>
+    internal sealed class Configuration : DbMigrationsConfiguration<MvcDemo.Entities.DemoContext>
     {
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
         }
 
-        protected override void Seed(MvcDemo.Entities.Context context)
+        protected override void Seed(MvcDemo.Entities.DemoContext context)
         {
             //  This method will be called after migrating to the latest version.
 

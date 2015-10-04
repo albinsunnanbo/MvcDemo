@@ -1,0 +1,17 @@
+﻿@model MvcDemo.Models.CustomerModel
+
+@{
+    ViewBag.Title = "New";
+}
+
+<h2>New</h2>
+
+@using (Html.BeginForm("New", "Customer"))
+{
+    <p>
+        @Html.EditorFor(m => m.CustomerName)
+    </p>
+    <p>
+        <button type="submit">Click me, please!</button>
+    </p>
+}
