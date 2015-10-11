@@ -1,4 +1,4 @@
-﻿@model IEnumerable<MvcDemo.Models.CustomerModel>
+﻿@model MvcDemo.Models.CustomerSearchModel
 
 @{
     ViewBag.Title = "Customers";
@@ -10,11 +10,18 @@
     @Html.ActionLink("New customer", "New", "Customer")
 </p>
 <p>
-    Existing
+    Search existing
 </p>
-<ul>
-    @foreach (var customer in Model)
+<p>
+    @using (Html.BeginForm("Search", "Customer"))
     {
-        <li>@Html.DisplayFor(m => customer.CustomerName) - @Html.ActionLink("Edit customer", "Edit", new { id = customer.CustomerId })</li>
+        @Html.LabelFor(m => m.CustomerName)
+        <br />
+        @Html.TextBoxFor(m => m.CustomerName, new { autocomplete = "off" })
     }
-</ul>
+</p>
+<ul id="result-list"></ul>
+
+@section scripts{
+    <script src="~/Scripts/Views/SearchCustomer.js"></script>
+}

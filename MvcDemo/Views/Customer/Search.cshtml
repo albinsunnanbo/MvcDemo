@@ -1,0 +1,8 @@
+﻿@model IEnumerable<MvcDemo.Models.CustomerModel>
+@{
+    Layout = "";
+}
+@foreach (var customer in Model)
+{
+    <li>@Html.DisplayFor(m => customer.CustomerName) - @Html.ActionLink("Edit customer", "Edit", new { id = customer.CustomerId })</li>
+}

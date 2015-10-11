@@ -12,9 +12,20 @@ namespace MvcDemo.Controllers
     {
         public ActionResult Index()
         {
+            return View();
+        }
+
+        public ActionResult Search(CustomerSearchModel inputModel)
+        {
             using (var db = new DemoContext())
             {
-                var model = from c in db.Customers
+                IQueryable<Customer> source = db.Customers;
+                if (!string.IsNullOrWhiteSpace(inputModel.CustomerName))
+                {
+                    source = source.Where(c => c.Name.Contains(inputModel.CustomerName));
+                }
+                var model = from c in source
+                            orderby c.Name
                             select new CustomerModel
                             {
                                 CustomerId = c.CustomerId,
@@ -23,7 +34,6 @@ namespace MvcDemo.Controllers
 
                 return View(model.ToList());
             }
-
         }
 
         public ActionResult New()
