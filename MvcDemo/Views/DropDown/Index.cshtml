@@ -1,0 +1,16 @@
+﻿@model MvcDemo.Models.DropDownModel
+
+@using (Html.BeginForm("Edit", "DropDown"))
+{
+    <p></p>
+    <p>
+        @Html.LabelFor(m => m.County)
+        @Html.DropDownListFor(m => m.County, Model.AllCounties)
+    </p>
+    <p id="municipality-placeholder" data-url="@Url.Action("KommunerILän")">
+        @Html.Action("KommunerILän", Model)
+    </p>
+}
+@section scripts{
+    <script src="~/Scripts/Views/DropDown.js"></script>
+}

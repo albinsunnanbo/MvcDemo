@@ -1,0 +1,7 @@
+﻿@model MvcDemo.Models.DropDownModel
+@{
+    Layout = "";
+}
+
+@Html.LabelFor(m => m.Municipality)
+@Html.DropDownListFor(m => m.Municipality, Model.MunicipalitiesInCounty)

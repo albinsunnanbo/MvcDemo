@@ -128,6 +128,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
+    <Compile Include="Controllers\DropDownController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Entities\DemoContext.cs" />
     <Compile Include="Entities\Customer.cs" />
@@ -141,6 +142,7 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CustomerSearchModel.cs" />
     <Compile Include="Models\CustomerModel.cs" />
+    <Compile Include="Models\DropDownModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -175,6 +177,7 @@
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\Views\Common.js" />
+    <Content Include="Scripts\Views\DropDown.js" />
     <Content Include="Scripts\Views\SearchCustomer.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -195,6 +198,8 @@
     <Content Include="Views\Customer\Index.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\Search.cshtml" />
+    <Content Include="Views\DropDown\Index.cshtml" />
+    <Content Include="Views\DropDown\KommunerILän.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
